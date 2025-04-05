@@ -42,19 +42,9 @@ public class Estudiante {
         return curso;
     }
 
-//    public void setNombre(String nombre) {
-//        this.nombre = nombre;
-//    }
-//    public void setEdad(int edad) {
-//        this.edad = edad;
-//    }
-//
-//    public void setCurso(String curso) {
-//        this.curso = curso;
-//    }
 
     public static boolean validarNombre(String nombre) {
-        return nombre != null && !nombre.trim().equals(" ");
+        return nombre != null && !nombre.trim().equals("");
     }
     public static boolean validarEdad(int edad) {
         return edad>=18 && edad<=65;

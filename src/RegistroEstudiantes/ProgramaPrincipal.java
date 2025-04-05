@@ -78,12 +78,15 @@ public class ProgramaPrincipal {
             curso = scn.nextLine();
 
             if( Estudiante.validarNombre(nombre) && Estudiante.validarEdad(edad) && Estudiante.validarCurso(curso)){
+                estudianteNuevo = new Estudiante(nombre, edad, curso);
                 crearEstudiante = true;
+            } else {
+                estudianteNuevo = new Estudiante(nombre, edad, curso);
+                System.out.println("Vuelve a introducir el estudiante con los datos correctos");
             }
 
         } while (!crearEstudiante);
 
-        estudianteNuevo = new Estudiante(nombre, edad, curso);
         return estudianteNuevo;
     }
 }
