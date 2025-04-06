@@ -70,25 +70,28 @@ public class ProgramaPrincipal {
             System.out.println("Nombre del estudiante: ");
             nombre = scn.nextLine();
 
+            if(!Estudiante.validarNombre(nombre)){
+                throw new NombreInvalidoException("El nombre no puede estar vacío.");
+            }
+
             System.out.println("Edad del estudiante: ");
             edad = Integer.parseInt(scn.nextLine());
+
+            if(!Estudiante.validarEdad(edad)){
+                throw new EdadInvalidaException("La edad debe estar entre 18 y 65");
+            }
 
             System.out.println("Curso del estudiante: ");
             System.out.println("1. Java\n2. Python\n3. Bases de Datos");
             curso = scn.nextLine();
 
+            if(!Estudiante.validarCurso(curso)){
+                throw new CursoInvalidoException("El curso no existe");
+            }
+
             if( Estudiante.validarNombre(nombre) && Estudiante.validarEdad(edad) && Estudiante.validarCurso(curso)){
                 crearEstudiante = true;
             } else {
-                if(!Estudiante.validarNombre(nombre)){
-                    throw new NombreInvalidoException("El nombre no puede estar vacío.");
-                }
-                if(!Estudiante.validarEdad(edad)){
-                    throw new EdadInvalidaException("La edad debe estar entre 18 y 65");
-                }
-                if(!Estudiante.validarCurso(curso)){
-                    throw new CursoInvalidoException("El curso no existe");
-                }
                 System.out.println("Vuelve a introducir el estudiante con los datos correctos");
             }
         } while (!crearEstudiante);
